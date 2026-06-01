@@ -1,26 +1,312 @@
 @import "tailwindcss";
 
+/* ═══════════════════════════════════════════════════════════════════
+   TAILWIND V4 THEME — maps design tokens into Tailwind utilities
+   Source: §2–4 of DESIGN_SPEC.md, §13.1 breakpoints
+   ═══════════════════════════════════════════════════════════════════ */
+@theme {
+  /* ─ Fonts ─────────────────────────────────────────────────────── */
+  --font-primary: "Inter Tight", sans-serif;
+
+  /* ─ Breakpoints (mirrors §13.1 / Webflow) ───────────────────── */
+  --breakpoint-sm:   480px;   /* mobile-sm boundary  */
+  --breakpoint-md:   768px;   /* mobile landscape     */
+  --breakpoint-lg:   992px;   /* desktop starts       */
+  --breakpoint-xl:  1440px;   /* desktop L            */
+  --breakpoint-2xl: 1920px;   /* desktop XL           */
+
+  /* ─ Colors — neutrals ────────────────────────────────────────── */
+  --color-neutral-100: #ffffff;
+  --color-neutral-200: #dde2ef;
+  --color-neutral-300: #b6bcc9;
+  --color-neutral-400: #7c818d;
+  --color-neutral-500: #3b3e45;
+  --color-neutral-600: #121418;
+  --color-neutral-700: #090a0c;
+  --color-neutral-800: #050607;
+
+  /* ─ Colors — accent ──────────────────────────────────────────── */
+  --color-accent-interactive: #2388ff;
+  --color-accent-promo:       #146ef5;
+
+  /* ─ Colors — semantic ────────────────────────────────────────── */
+  --color-bg-page:    #050607;
+  --color-bg-section: #090a0c;
+  --color-bg-card:    #121418;
+  --color-text-body:  #b6bcc9;
+  --color-text-muted: #7c818d;
+  --color-border:     #121418;
+  --color-border-strong: #3b3e45;
+
+  /* ─ Colors — system ──────────────────────────────────────────── */
+  --color-red-100: #fff5f6; --color-red-200: #fac6d0; --color-red-300: #fb93a3; --color-red-400: #fe566b;
+  --color-blue-100: #e3efff; --color-blue-200: #c3ddff; --color-blue-300: #8dc1ff; --color-blue-400: #64a7ff;
+  --color-yellow-100: #fffae9; --color-yellow-200: #faedbf; --color-yellow-300: #fbe080; --color-yellow-400: #efc42c;
+  --color-green-100: #eef9f5; --color-green-200: #e2fbea; --color-green-300: #adecbb; --color-green-400: #74d184;
+
+  /* ─ Border radius ────────────────────────────────────────────── */
+  --radius-card:    2rem;    /* 32px */
+  --radius-section: 4rem;    /* 64px */
+  --radius-pill:    12.5rem; /* 200px */
+  --radius-pill-lg: 18.75rem;/* 300px */
+  --radius-blog:    1.5rem;  /* 24px */
+
+  /* ─ Spacing extras (beyond default Tailwind) ─────────────────── */
+  --spacing-18: 4.5rem;  /* 72px  */
+  --spacing-25: 6.25rem; /* 100px */
+  --spacing-30: 7.5rem;  /* 120px */
+  --spacing-40: 10rem;   /* 160px */
+  --spacing-50: 12.5rem; /* 200px */
+
+  /* ─ Box shadows ──────────────────────────────────────────────── */
+  --shadow-card:    0 6px 20px #4a3aff14;
+  --shadow-btn-sm:  0 1px 3px #19213d1a;
+  --shadow-btn-rg:  0 1px 4px #19213d14;
+  --shadow-btn-sec: 0 1px 4px #19213d1a;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   DESIGN TOKENS — Robotflow / Home V1
+   Source: §2–4 of DESIGN_SPEC.md
+   ═══════════════════════════════════════════════════════════════════ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ─ Neutral scale ────────────────────────────────────────────── */
+  --neutral-colors--100: #ffffff;
+  --neutral-colors--200: #dde2ef;
+  --neutral-colors--300: #b6bcc9;
+  --neutral-colors--400: #7c818d;
+  --neutral-colors--500: #3b3e45;
+  --neutral-colors--600: #121418;
+  --neutral-colors--700: #090a0c;
+  --neutral-colors--800: #050607;
+
+  /* ─ Accent ───────────────────────────────────────────────────── */
+  --accent-interactive: #2388ff;
+  --accent-promo:       #146ef5;
+
+  /* ─ System palette ───────────────────────────────────────────── */
+  --red-100: #fff5f6; --red-200: #fac6d0; --red-300: #fb93a3; --red-400: #fe566b;
+  --blue-100: #e3efff; --blue-200: #c3ddff; --blue-300: #8dc1ff; --blue-400: #64a7ff;
+  --yellow-100: #fffae9; --yellow-200: #faedbf; --yellow-300: #fbe080; --yellow-400: #efc42c;
+  --green-100: #eef9f5; --green-200: #e2fbea; --green-300: #adecbb; --green-400: #74d184;
+
+  /* ─ Shadows ──────────────────────────────────────────────────── */
+  --bs-neutral-small:   0 1px 3px #19213d1a;
+  --bs-neutral-regular: 0 1px 4px #19213d14;
+  --bs-secondary-btn:   0 1px 4px #19213d1a;
+  --bs-buy-card:        0 6px 20px #4a3aff14;
+
+  /* ─ Main spacers (px as rem) ─────────────────────────────────── */
+  --space-5xsm:  0.25rem;   /* 4px  */
+  --space-4xsm:  0.5rem;    /* 8px  */
+  --space-3xsm:  0.75rem;   /* 12px */
+  --space-2xsm:  1rem;      /* 16px */
+  --space-xsm:   1.25rem;   /* 20px */
+  --space-sm:    1.5rem;    /* 24px */
+  --space-rg:    2rem;      /* 32px */
+  --space-md:    2.5rem;    /* 40px */
+  --space-lg:    3rem;      /* 48px */
+  --space-xlg:   3.5rem;    /* 56px */
+  --space-2xlg:  4rem;      /* 64px */
+  --space-3xlg:  4.5rem;    /* 72px */
+  --space-4xlg:  5rem;      /* 80px */
+  --space-5xlg:  6.25rem;   /* 100px */
+  --space-6xlg:  7.5rem;    /* 120px */
+  --space-7xlg:  10rem;     /* 160px */
+  --space-8xlg:  12.5rem;   /* 200px */
+
+  /* ─ Section paddings ─────────────────────────────────────────── */
+  --section-pad-xsm:  4rem;    /* 64px  */
+  --section-pad-sm:   5rem;    /* 80px  */
+  --section-pad-rg:   6.25rem; /* 100px */
+  --section-pad-md:   7.5rem;  /* 120px */
+  --section-pad-lg:   10rem;   /* 160px */
+  --section-pad-xlg:  12.5rem; /* 200px — default */
+
+  /* ─ Border radius ────────────────────────────────────────────── */
+  --radius-card:    2rem;   /* 32px */
+  --radius-section: 4rem;   /* 64px */
+  --radius-pill:    12.5rem;/* 200px */
+
+  /* ─ Display font sizes (desktop) ────────────────────────────── */
+  --display-10: 4.5rem;    /* 72px */
+  --display-9:  3.75rem;   /* 60px */
+  --display-8:  3rem;      /* 48px */
+  --display-7:  2.25rem;   /* 36px */
+  --display-6:  1.875rem;  /* 30px */
+  --display-5:  1.5rem;    /* 24px */
+  --display-4:  1.25rem;   /* 20px */
+  --display-3:  1.125rem;  /* 18px */
+  --display-2:  1rem;      /* 16px */
+  --display-1:  0.875rem;  /* 14px */
+
+  /* ─ Paragraph sizes ──────────────────────────────────────────── */
+  --paragraph-lg: 1.25rem; /* 20px */
+  --paragraph-rg: 1.125rem;/* 18px */
+  --paragraph-sm: 1rem;    /* 16px */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* ─── Tablet overrides (≤991px) ──────────────────────────────────── */
+@media (max-width: 991px) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --display-10: 4rem;    /* 64px */
+    --display-9:  3rem;    /* 48px */
+    --display-8:  2.25rem; /* 36px */
+    --display-7:  1.875rem;/* 30px */
+    --display-6:  1.75rem; /* 28px */
+    --radius-section: 2.5rem; /* 40px */
+    --radius-card:    1.5rem; /* 24px */
+    --section-pad-xlg: 10rem;
+    --section-pad-lg:  7.5rem;
+    --section-pad-md:  6.25rem;
   }
 }
 
+/* ─── Mobile overrides (≤767px) ──────────────────────────────────── */
+@media (max-width: 767px) {
+  :root {
+    --display-10: 2.75rem; /* 44px */
+    --display-9:  2.25rem; /* 36px */
+    --display-8:  2rem;    /* 32px */
+    --display-7:  1.75rem; /* 28px */
+    --display-6:  1.5rem;  /* 24px */
+    --display-5:  1.375rem;/* 22px */
+    --paragraph-rg: 1rem;  /* 16px */
+    --paragraph-lg: 1.125rem; /* 18px */
+    --radius-section: 1.5rem; /* 24px */
+    --radius-card:    1rem;   /* 16px */
+    --section-pad-xlg: 5rem;  /* 80px */
+    --section-pad-lg:  5rem;
+    --section-pad-md:  5rem;
+  }
+}
+
+/* ─── Mobile small overrides (≤479px) ────────────────────────────── */
+@media (max-width: 479px) {
+  :root {
+    --display-10: 2.75rem; /* 44px */
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   BASE ELEMENT STYLES
+   ═══════════════════════════════════════════════════════════════════ */
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-primary, "Inter Tight", sans-serif);
+  font-size: var(--paragraph-rg);
+  line-height: 1.5em;
+  font-weight: 400;
+  color: var(--neutral-colors--300);
+  background-color: var(--neutral-colors--800);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--neutral-colors--100);
+  font-weight: 500;
+  line-height: 1.25em;
+}
+
+h1 { font-size: var(--display-10); }
+h2 { font-size: var(--display-8);  }
+h3 { font-size: var(--display-5);  }
+h4 { font-size: var(--display-4);  }
+h5 { font-size: var(--display-3);  }
+h6 { font-size: var(--display-2);  }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ─── Display utility classes ─────────────────────────────────────── */
+.display-10 { font-size: var(--display-10); line-height: 1.25em; }
+.display-9  { font-size: var(--display-9);  line-height: 1.25em; }
+.display-8  { font-size: var(--display-8);  line-height: 1.25em; }
+.display-7  { font-size: var(--display-7);  line-height: 1.25em; }
+.display-6  { font-size: var(--display-6);  line-height: 1.25em; }
+.display-5  { font-size: var(--display-5);  line-height: 1.25em; }
+.display-4  { font-size: var(--display-4);  line-height: 1.25em; }
+.display-3  { font-size: var(--display-3);  line-height: 1.25em; }
+.display-2  { font-size: var(--display-2);  line-height: 1.25em; }
+.display-1  { font-size: var(--display-1);  line-height: 1.25em; }
+
+/* ─── Font weight modifiers ───────────────────────────────────────── */
+.mid      { font-weight: 500; }
+.strong   { font-weight: 700; }
+.regular  { font-weight: 400; }
+
+/* ─── Text color helpers ──────────────────────────────────────────── */
+.text-titles    { color: var(--neutral-colors--100); }
+.text-neutral-200 { color: var(--neutral-colors--200); }
+.text-neutral-400 { color: var(--neutral-colors--400); }
+.text-uppercase { letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* ─── Container ───────────────────────────────────────────────────── */
+.container-default {
+  max-width: 1280px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/*
+ * Tight text + media pairs inside a wide container.
+ * Use instead of justify-between / 1fr columns that pin content to opposite edges.
+ */
+.layout-split-tight {
+  display: grid;
+  width: 100%;
+  max-width: 52.5rem; /* 840px — text + image + gap */
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .layout-split-tight {
+    grid-template-columns: minmax(0, 22rem) minmax(0, 25rem); /* ~352px + 400px */
+    gap: 2rem;
+  }
+}
+
+/* ─── Section defaults ────────────────────────────────────────────── */
+.section {
+  padding-top: var(--section-pad-xlg);
+  padding-bottom: var(--section-pad-xlg);
+}
+
+/* ─── Scroll-reveal initial state (§7.2) ─────────────────────────── */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translate3d(0, 50px, 0);
+}
+
+/* ─── CTA section mobile background override (§13.5) ─────────────── */
+@media (max-width: 767px) {
+  .cta-bg-image-v1 {
+    background-image: linear-gradient(#000000a6, #000000a6),
+      url("https://cdn.prod.website-files.com/697240ea3992ad9c5a02a0d9/698e649a51642f751f1598bc_cta-v1-bg-image-robotflow-webflow-ecommerce-template.jpg") !important;
+    background-position: 0 0, center;
+    background-size: auto, cover;
+  }
+}
+
+/* ─── Focus styles ────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent-interactive);
+  outline-offset: 2px;
+}
+
+/* ─── Reduced motion ──────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
 }

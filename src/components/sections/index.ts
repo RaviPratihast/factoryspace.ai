@@ -1,0 +1,14 @@
+export { Hero }             from './Hero';
+export { MarqueeStrip }     from './MarqueeStrip';
+export { WhyChooseUs }      from './WhyChooseUs';
+export { HowItWorks }       from './HowItWorks';
+export { WhyNow }           from './WhyNow';
+export { AboutUs }          from './AboutUs';
+export { TestimonialMarquee } from './TestimonialMarquee';
+export { FeaturesGrid }     from './FeaturesGrid';
+export { VideoFeature }     from './VideoFeature';
+export { ProductSpotlight } from './ProductSpotlight';
+export { CtaBanner }        from './CtaBanner';
+export { PricingModels }    from './PricingModels';
+export { NewsPreview }      from './NewsPreview';
+export { Faq }              from './Faq';
