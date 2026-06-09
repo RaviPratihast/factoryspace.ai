@@ -66,7 +66,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   DESIGN TOKENS — Robotflow / Home V1
+   DESIGN TOKENS — factoryspace.ai / Home V1
    Source: §2–4 of DESIGN_SPEC.md
    ═══════════════════════════════════════════════════════════════════ */
 
@@ -254,6 +254,31 @@ a {
   max-width: 1280px;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+/* ─── Landing page section spacing ─────────────────────────────────── */
+.section-pad-y {
+  padding-top: 6.25rem;    /* 100px */
+  padding-bottom: 6.25rem;
+}
+
+@media (max-width: 767px) {
+  .section-pad-y {
+    padding-top: 4rem;     /* 64px */
+    padding-bottom: 4rem;
+  }
+}
+
+.section-pad-y-card-wrap {
+  padding-top: 5rem;       /* 80px */
+  padding-bottom: 5rem;
+}
+
+@media (max-width: 767px) {
+  .section-pad-y-card-wrap {
+    padding-top: 3rem;     /* 48px */
+    padding-bottom: 3rem;
+  }
 }
 
 /*

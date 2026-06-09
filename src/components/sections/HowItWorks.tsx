@@ -143,7 +143,7 @@ export function HowItWorks() {
   }, []);
 
   return (
-    <div className="how-it-works-outer bg-[#050607] px-6">
+    <div className="how-it-works-outer section-pad-y-card-wrap bg-[#050607] px-6">
       <section
         ref={sectionRef}
         id="how-it-works"

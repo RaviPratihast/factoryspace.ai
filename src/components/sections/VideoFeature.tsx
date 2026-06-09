@@ -16,7 +16,7 @@ export function VideoFeature() {
     <section
       id="design"
       className={[
-        'relative overflow-hidden rounded-[64px] bg-[#090a0c] mx-4 lg:mx-6',
+        'video-feature-section relative overflow-hidden rounded-[64px] bg-[#090a0c] mx-4 lg:mx-6',
         'py-[200px] max-[991px]:py-[160px] max-[767px]:py-[80px]',
         'max-[991px]:rounded-[40px] max-[767px]:rounded-[24px]',
       ].join(' ')}
@@ -34,15 +34,15 @@ export function VideoFeature() {
         OmbiBot
       </div>
 
-      <div className="container-default relative z-10 mx-auto px-6 text-center">
-
-        {/* SLOT: video.title — display-8 */}
-        <h2 className="mb-12 text-[48px] max-[991px]:text-[36px] max-[767px]:text-[32px] font-medium leading-[1.25em] text-white animate-on-scroll opacity-0 translate-y-[50px]">
+      <div className="video-feature-container container-default relative z-10 mx-auto px-6 text-center">
+        <h2
+          id="video-feature-title"
+          className="video-feature-title mb-12 text-[48px] max-[991px]:text-[36px] max-[767px]:text-[32px] font-medium leading-[1.25em] text-white animate-on-scroll opacity-0 translate-y-[50px]"
+        >
           Where technology meets design
         </h2>
 
-        {/* Video / lightbox block */}
-        <div className="relative overflow-hidden rounded-[32px] bg-[#121418] animate-on-scroll opacity-0 translate-y-[50px]">
+        <div className="video-feature-player relative overflow-hidden rounded-[32px] bg-[#121418] animate-on-scroll opacity-0 translate-y-[50px]">
           {/* Placeholder aspect ratio box — replace with real video thumbnail */}
           <div
             className="relative pt-[56.25%] cursor-pointer"
@@ -56,7 +56,7 @@ export function VideoFeature() {
               {/* Play button SVG — 98×98 on desktop, 64×64 on mobile */}
               <button
                 aria-label="Play"
-                className="h-24 w-24 max-[767px]:h-16 max-[767px]:w-16 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/20 transition-transform duration-300 hover:scale-95"
+                className="flex h-24 w-24 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-sm transition-transform duration-300 hover:scale-95 max-[767px]:h-16 max-[767px]:w-16"
               >
                 <svg viewBox="0 0 24 24" fill="white" className="h-8 w-8 ml-1">
                   <path d="M8 5v14l11-7z" />

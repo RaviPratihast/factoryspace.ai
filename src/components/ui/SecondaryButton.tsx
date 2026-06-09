@@ -18,7 +18,7 @@ export function SecondaryButton({ label, href, className, onClick }: SecondaryBu
     'inline-flex items-center justify-center rounded-[300px]',
     'border border-white bg-transparent px-6 py-2',
     'text-[18px] font-medium leading-[1.5em] text-white',
-    'shadow-[0_1px_4px_#19213d1a]',
+    'cursor-pointer shadow-[0_1px_4px_#19213d1a]',
     'transition-transform duration-300 hover:scale-[0.97]',
     className
   );

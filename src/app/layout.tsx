@@ -11,11 +11,11 @@ const interTight = Inter_Tight({
 });
 
 export const metadata: Metadata = {
-  title: 'Robotflow — The next generation of humanoid robotics',
-  description: 'OmniBot combines advanced AI, unmatched mobility, and human-like precision. Reserve your unit today.',
+  title: 'factoryspace.ai — Robot labor as a service',
+  description: 'FactorySpace ships robots to your facility, sets them up, and manages them. Pay only for the work completed.',
   openGraph: {
-    title: 'Robotflow — The next generation of humanoid robotics',
-    description: 'OmniBot combines advanced AI, unmatched mobility, and human-like precision.',
+    title: 'factoryspace.ai — Robot labor as a service',
+    description: 'FactorySpace ships robots to your facility, sets them up, and manages them. Pay only for the work completed.',
     images: [{ url: '/og.png' }],
   },
 };

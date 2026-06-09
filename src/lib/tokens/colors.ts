@@ -1,6 +1,6 @@
 /**
  * Design token: Color system
- * Source: §2 of DESIGN_SPEC.md (Robotflow / Home V1)
+ * Source: §2 of DESIGN_SPEC.md (factoryspace.ai / Home V1)
  * These are the authoritative values — map to CSS vars in globals.css and tailwind.config.ts.
  */
 

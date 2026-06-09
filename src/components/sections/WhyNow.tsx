@@ -79,7 +79,7 @@ export function WhyNow() {
     <section
       ref={sectionRef}
       id="why-now"
-      className="why-now-section bg-[#050607] py-[200px] max-[767px]:py-[120px]"
+      className="why-now-section section-pad-y bg-[#050607]"
       aria-labelledby="why-now-title"
     >
       <div className="why-now-container container-default mx-auto px-6">

@@ -5,7 +5,7 @@
  * Source: §5.7 + §13.3
  */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { PrimaryButton } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -19,29 +19,31 @@ import { Menu, X } from "lucide-react";
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="site-header fixed top-0 left-0 right-0 z-50 py-8">
+    <header
+      className={cn(
+        "site-header fixed top-0 left-0 right-0 z-50 py-8 transition-[background-color,border-color,box-shadow] duration-300",
+        scrolled &&
+          "border-b border-[#121418] bg-[#050607] shadow-[0_4px_24px_rgba(0,0,0,0.4)]",
+      )}
+    >
       <div className="site-header-container container-default mx-auto flex items-center justify-between px-6">
         <Link
           href="/"
-          aria-label="Home"
-          className="site-header-logo shrink-0 flex items-center gap-2.5"
+          aria-label="factoryspace.ai home"
+          className="site-header-logo shrink-0 flex items-center"
         >
-          <span className="site-header-logo-icon flex h-8 w-8 items-center justify-center rounded-[8px] bg-white">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              aria-hidden
-              className="site-header-logo-svg"
-            >
-              <rect x="2" y="6" width="12" height="8" rx="2" fill="#050607" />
-              <circle cx="5.5" cy="10" r="1.2" fill="white" />
-              <circle cx="10.5" cy="10" r="1.2" fill="white" />
-              <rect x="6" y="2" width="4" height="4" rx="1" fill="#050607" />
-            </svg>
+          <span className="text-white font-semibold text-xl tracking-tight">
+            factoryspace.ai
           </span>
         </Link>
 

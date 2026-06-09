@@ -31,7 +31,7 @@ export function PrimaryButton({
     'group relative inline-flex items-center justify-center overflow-hidden',
     'rounded-[200px] border border-white bg-white px-6 py-2',
     'text-[18px] font-medium leading-[1.5em] text-black',
-    'transition-transform duration-300 hover:scale-[0.97]',
+    'cursor-pointer transition-transform duration-300 hover:scale-[0.97]',
     className
   );
 

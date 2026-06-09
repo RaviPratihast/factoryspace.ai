@@ -101,7 +101,7 @@ export function AboutUs() {
     <section
       ref={sectionRef}
       id="about-us"
-      className="about-us-section bg-[#050607] py-[200px] max-[767px]:py-[120px]"
+      className="about-us-section section-pad-y bg-[#050607]"
       aria-labelledby="about-us-title"
     >
       <div className="about-us-container container-default mx-auto px-6">
@@ -129,13 +129,15 @@ export function AboutUs() {
         {/* Tier 2 + 3 — images + body */}
         <div className="about-us-gallery about-us-gallery-animate mt-8 grid grid-cols-1 gap-x-6 gap-y-10 opacity-0 max-[479px]:grid-cols-1 min-[480px]:grid-cols-[1.5fr_1fr] min-[480px]:max-[767px]:gap-4 lg:grid-cols-[1.42fr_1fr]">
           <div className="about-us-image-base relative aspect-[5/4] min-h-[280px] w-full overflow-hidden rounded-[32px] max-[991px]:rounded-[24px] max-[479px]:rounded-2xl lg:col-start-1 lg:row-start-1">
-            <Image
-              src={IMAGE_BASE}
-              alt="Autonomous robot base with mounting port"
-              fill
-              sizes="(max-width: 768px) 100vw, 55vw"
-              className="about-us-image about-us-image-base-inner object-cover"
-            />
+            <div className="absolute inset-4 md:inset-6">
+              <Image
+                src={IMAGE_BASE}
+                alt="Autonomous robot base with mounting port"
+                fill
+                sizes="(max-width: 768px) 100vw, 55vw"
+                className="about-us-image about-us-image-base-inner object-contain"
+              />
+            </div>
           </div>
 
           <div className="about-us-image-arm relative aspect-[4/5] min-h-[280px] w-full overflow-hidden rounded-[32px] max-[991px]:rounded-[24px] max-[479px]:rounded-2xl lg:col-start-2 lg:row-start-1">

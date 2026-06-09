@@ -104,7 +104,7 @@ export function TestimonialMarquee() {
   return (
     <section
       ref={sectionRef}
-      className="testimonial-marquee-section relative overflow-hidden bg-[#050607] pt-[60px] pb-[100px] opacity-0"
+      className="testimonial-marquee-section section-pad-y relative overflow-hidden bg-[#050607] opacity-0"
       aria-label="Customer testimonials"
     >
       {/* Edge fades */}

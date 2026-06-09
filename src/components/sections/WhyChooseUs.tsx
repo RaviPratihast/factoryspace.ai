@@ -67,7 +67,7 @@ export function WhyChooseUs() {
   return (
     <section
       id="why-choose-us"
-      className="why-choose-us-section bg-[#050607] pt-[100px] pb-[200px] max-[479px]:pt-[60px] max-[991px]:pb-[120px]"
+      className="why-choose-us-section section-pad-y bg-[#050607]"
       aria-labelledby="why-choose-us-heading"
     >
       <div className="why-choose-us-container container-default mx-auto px-6">
@@ -90,7 +90,7 @@ export function WhyChooseUs() {
               type="button"
               onClick={goPrev}
               aria-label="Previous slide"
-              className="why-choose-us-arrow why-choose-us-arrow-prev flex h-12 w-12 items-center justify-center rounded-full border border-white bg-white text-[#050607] shadow-[0_1px_4px_#19213d1a] transition-transform duration-300 hover:scale-[0.97]"
+              className="why-choose-us-arrow why-choose-us-arrow-prev flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-white bg-white text-[#050607] shadow-[0_1px_4px_#19213d1a] transition-transform duration-300 hover:scale-[0.97]"
             >
               <ChevronLeft className="why-choose-us-arrow-icon h-5 w-5" aria-hidden />
             </button>
@@ -98,7 +98,7 @@ export function WhyChooseUs() {
               type="button"
               onClick={goNext}
               aria-label="Next slide"
-              className="why-choose-us-arrow why-choose-us-arrow-next flex h-12 w-12 items-center justify-center rounded-full border border-white bg-white text-[#050607] shadow-[0_1px_4px_#19213d1a] transition-transform duration-300 hover:scale-[0.97]"
+              className="why-choose-us-arrow why-choose-us-arrow-next flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-white bg-white text-[#050607] shadow-[0_1px_4px_#19213d1a] transition-transform duration-300 hover:scale-[0.97]"
             >
               <ChevronRight className="why-choose-us-arrow-icon h-5 w-5" aria-hidden />
             </button>
